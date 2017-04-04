@@ -10,6 +10,7 @@ from bs4 import BeautifulSoup
 html = urlopen("https://www.wikipedia.org")
 bsobj = BeautifulSoup(html.read(), "html.parser") #html.parser is the parser we are using
 print(bsobj.h1) #include those elements which have h1 tag
+print(bsobj.title) # to get the <title> element from the HTML Code
 
 #but the output is not in human readable format, so we use html.read()
 #print(html.read())
