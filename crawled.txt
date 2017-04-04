@@ -1,2 +1,0 @@
-#contains Crawled websites, to check if the website is already crawled
-#Crawlers are also called Spyders
