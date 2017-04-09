@@ -39,7 +39,7 @@ def create_text_files(directory, baseurl):
 #Append to file function
 def append_to_file(path, data):
     with open(path, 'a') as f:
-        f.write(data,'\n') # to ensure that next data is written on next line
+        f.write(data+'\n') # to ensure that next data is written on next line
 
 
 #delete file function
@@ -54,10 +54,10 @@ def file_to_set(path):
             results.add(line.replace('\n','')) # replace \n with nothing in the line
     return results
 
-def set_to_file(path, set1:
+def set_to_file(set1, path):
     with open(path, 'wt') as f:
         for each in sorted(set1): # to ensure links are in sorted order
-            f.write(each+"\n") # so that each link is in a new line
+            f.write(each+'\n') # so that each link is in a new line
 
 
 

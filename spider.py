@@ -1,4 +1,5 @@
 from urllib2 import urlopen
+from  HTMLParser import HTMLParser
 from link_finder import LinkFinder
 from WebCrawler2 import *
 from Domain import *
@@ -42,15 +43,15 @@ class Spider:
 
     @staticmethod
     def gather_links(page_url):
-        htmlstring = '' # variable to parse the crawled page
+        html_string = '' # variable to parse the crawled page
         try:
             response = urlopen(page_url)
             #check content type is html/text, do not open pdf etx file
             if 'text/html' in response.headers.getheader('Content-Type'):
                 html_bytes = response.read() #output is in html bytes
-                htmlsring = html_bytes.decode("utf-8") #utf 8 is the encoding format
+                html_string = html_bytes.decode('utf-8','replace') #utf 8 is the encoding format
             finder = LinkFinder(Spider.base_url, page_url)
-            finder.feed(htmlstring)
+            finder.feed(html_string)
         except Exception as e:
             print(str(e))
             return set()
